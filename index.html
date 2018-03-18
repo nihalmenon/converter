@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Converter</title>
+	<style type="text/css">
+		body {
+			background-color: #eee;
+			font-size: 25px;
+			text-align: left;
+		}
+		h1 {
+			text-align: center;
+		}
+		.dollars {
+			width: 100px;
+			height: 30px;
+			border: 2px #303338 solid;
+			text-align: left;
+			font-size: 14.5px;
+			-webkit-transition: 0.4s;
+			transition: 0.4s;
+			padding-left: 3px;
+		}
+		.dollars:focus {
+			width: 140px;
+			border: blue solid;
+		}
+		.dollars:hover {
+			cursor: pointer;
+			border: blue solid;
+		}
+		.cents {
+			width: 60px;
+			height: 30px;
+			border: 2px #303338 solid;
+			text-align: left;
+			font-size: 14.5px;
+			-webkit-transition: 0.4s;
+			transition: 0.4s;
+			padding-left: 3px;
+		}
+		.cents:focus {
+			width: 85px;
+			border: blue solid;
+		}
+		.cents:hover {
+			cursor: pointer;
+			border: blue solid;
+		}
+		.customButton {
+		    background-color: white;
+		    color: black;
+		    border: 2px solid #555555;
+		    width: 80px;
+		    height: 37px;
+		 	text-align: center;
+			font-size: 16px;
+		 	transition: 0.3s;
+		 	-webkit-transition: 0.3s;
+		  	text-decoration: none;
+			cursor: pointer;
+			display: inline-block;
+			border-radius: 8px;
+		}
+		.customButton:hover {
+		    background-color: #555555;
+		    color: white;
+		}
+
+	</style>
+</head>
+<body>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<h1>Money Converter between CAD and USD</h1>
+	<hr>
+	<div id="CadtoUsd">
+		<h2>Canadian dollars to American dollars</h2>
+		<p>Please enter the amount in canadian dollars: </p>
+		$<input type="number" placeholder="Dollars" min="0" id="dollarsa" class="dollars"> .
+		<input type="number" placeholder="Cents" min="0" max="100" id="centsa" maxlength="2" class="cents">
+		<button onclick="convertcadusd()" class="customButton">Convert</button>
+		<p id="USD">$0 USD</p>
+	</div>
+	<div id="UsdtoCad">
+		<h2>American dollars to Canadian dollars</h2>
+		<p>Please enter the amount in American dollars: </p>
+		<input type="number" placeholder="Dollars" min="0" id="dollarsb" class="dollars">
+		<input type="number" placeholder="Cents" min="0" max="100" id="centsb" maxlength="2" class="cents">
+		<button onclick="convertusdcad()" class="customButton">Convert</button>
+		<p id="CAD">$0 CAD</p>
+	</div> 
+	<script type="text/javascript">
+		function convertcadusd() {
+			var cents = document.getElementById("centsa").value;
+			var dollars = document.getElementById("dollarsa").value;
+			// var money = (cents / 100) + dollars;
+			var CAD_TO_USD = 0.763642;
+			var converted = ((cents / 100) * CAD_TO_USD) + (dollars * CAD_TO_USD);
+			converted = Math.round(100 * converted) / 100;
+			document.getElementById("USD").textContent = "$" + converted + " USD";
+		}
+		function convertusdcad() {
+			var cents = document.getElementById("centsb").value;
+			var dollars = document.getElementById("dollarsb").value;
+			// var money = cents + dollars;
+			var USD_TO_CAD = 1.30953;
+			var converted = ((cents / 100) * USD_TO_CAD) + (dollars * USD_TO_CAD);
+			converted = Math.round(100 * converted) / 100;
+			document.getElementById("CAD").textContent = "$" + converted + " CAD";
+		}
+
+	</script>
+</body>
+</html>
