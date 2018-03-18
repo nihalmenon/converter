@@ -71,23 +71,43 @@
 		    -webkit-appearance: none;
 		    margin: 0;
 		}
+		.switchButton {
+			background-color: #1e90ff;
+		    border: none;
+		    color: white;
+		    padding: 12px 16px;
+		    font-size: 16px;
+		    cursor: pointer;
+		    -webkit-transition: 0.3s;
+		    transition: 0.2s;
+		    box-shadow: 0 9px #999;
+		    border-radius: 8px;
+		}
+		.switchButton:hover {
+			background-color: #4169e1;
+		}
+		.switchButton:active {
+			box-shadow: 0 5px #666;
+			transform: translateY(4px);
+		}
 	</style>
 </head>
 <body>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
 	<h1>Money Converter between CAD and USD</h1>
 	<hr>
+	<button onclick="switchFunction()" class="switchButton">Switch</button>
 	<div id="CadtoUsd">
 		<h2>Canadian dollars to American dollars</h2>
-		<p>Please enter the amount in canadian dollars: </p>
+		<p>Please enter the amount in <b>Canadian</b> dollars: </p>
 		$<input type="number" placeholder="Dollars" min="0" id="dollarsa" class="dollars" onselect="enterfunc()" pattern="[0-9]"> .
 		<input type="number" placeholder="Cents" min="0" max="100" id="centsa" maxlength="2" class="cents" onselect="enterfunc()" pattern="[0-9]">
 		<button onclick="convertcadusd()" class="customButton">Convert</button>
 		<p id="USD">$0 USD</p>
 	</div>
-	<div id="UsdtoCad">
+	<div id="UsdtoCad" style="display: none;">
 		<h2>American dollars to Canadian dollars</h2>
-		<p>Please enter the amount in American dollars: </p>
+		<p>Please enter the amount in <b>American</b> dollars: </p>
 		$<input type="number" placeholder="Dollars" min="0" id="dollarsb" class="dollars" onselect="enterfunc2()" pattern="[0-9]"> . 
 		<input type="number" placeholder="Cents" min="0" max="100" id="centsb" maxlength="2" class="cents" onselect="enterfunc2()" pattern="[0-9]">
 		<button onclick="convertusdcad()" class="customButton">Convert</button>
@@ -111,6 +131,15 @@
 			var converted = ((cents / 100) * USD_TO_CAD) + (dollars * USD_TO_CAD);
 			converted = Math.round(100 * converted) / 100;
 			document.getElementById("CAD").textContent = "$" + converted + " CAD";
+		}
+		function switchFunction() {
+		   var firstdiv = document.getElementById("CadtoUsd"); 
+		   var seconddiv = document.getElementById("UsdtoCad");
+
+		   firstdiv.style.display = (
+		       firstdiv.style.display == "none" ? "block" : "none"); 
+		   seconddiv.style.display = (
+		       seconddiv.style.display == "none" ? "block" : "none"); 
 		}
 	</script>
 </body>
