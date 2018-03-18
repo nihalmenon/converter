@@ -80,16 +80,16 @@
 	<div id="CadtoUsd">
 		<h2>Canadian dollars to American dollars</h2>
 		<p>Please enter the amount in canadian dollars: </p>
-		$<input type="number" placeholder="Dollars" min="0" id="dollarsa" class="dollars" onselect="enterfunc()" pattern="[0-9]"> .
-		<input type="number" placeholder="Cents" min="0" max="100" id="centsa" maxlength="2" class="cents" onselect="enterfunc()" pattern="[0-9]">
+		$<input type="number" placeholder="Dollars" min="0" id="dollarsa" class="dollars" onselect="enterfunc()" pattern="[0-9]" inputmode="numeric"> .
+		<input type="number" placeholder="Cents" min="0" max="100" id="centsa" maxlength="2" class="cents" onselect="enterfunc()" pattern="[0-9]" inputmode="numeric">
 		<button onclick="convertcadusd()" class="customButton">Convert</button>
 		<p id="USD">$0 USD</p>
 	</div>
 	<div id="UsdtoCad">
 		<h2>American dollars to Canadian dollars</h2>
 		<p>Please enter the amount in American dollars: </p>
-		<input type="number" placeholder="Dollars" min="0" id="dollarsb" class="dollars" onselect="enterfunc2()" pattern="[0-9]">
-		<input type="number" placeholder="Cents" min="0" max="100" id="centsb" maxlength="2" class="cents" onselect="enterfunc2()" pattern="[0-9]">
+		<input type="number" placeholder="Dollars" min="0" id="dollarsb" class="dollars" onselect="enterfunc2()" pattern="[0-9]" inputmode="numeric">
+		<input type="number" placeholder="Cents" min="0" max="100" id="centsb" maxlength="2" class="cents" onselect="enterfunc2()" pattern="[0-9]" inputmode="numeric">
 		<button onclick="convertusdcad()" class="customButton">Convert</button>
 		<p id="CAD">$0 CAD</p>
 	</div> 
