@@ -100,8 +100,8 @@
 	<div id="CadtoUsd">
 		<h2>Canadian dollars to American dollars</h2>
 		<p>Please enter the amount in <b>Canadian</b> dollars: </p>
-		$<input type="number" placeholder="Dollars" min="0" id="dollarsa" class="dollars" onselect="enterfunc()" pattern="[0-9]"> .
-		<input type="number" placeholder="Cents" min="0" max="100" id="centsa" maxlength="2" class="cents" onselect="enterfunc()" pattern="[0-9]">
+		$<input type="tel" placeholder="Dollars" min="0" id="dollarsa" class="dollars" onselect="enterfunc()"> .
+		<input type="tel" placeholder="Cents" min="0" max="100" id="centsa" maxlength="2" class="cents" onselect="enterfunc()">
 		<button onclick="convertcadusd()" class="customButton">Convert</button>
 		<p id="USD">$0 USD</p>
 	</div>
